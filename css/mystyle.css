@@ -1,0 +1,22 @@
+#canvas-one {
+    border: 1px dotted red;
+    float: left;
+}
+
+button {
+    float: left;
+}
+
+#reset-button {
+    clear: left;
+}
+
+#current-stats {
+    float: left;
+}
+
+#dimension-slider {
+    float: left;
+    width: 350px;
+    height: 45px;
+}

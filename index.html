@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Canvasing the area</title>
+        <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    </head>
+    <body>
+        <canvas height="900" width="900" id="canvas-one">
+            If you see this, then you're an idiot and should install a better browser.
+        </canvas>
+        <button type="button" id="reset-button">Reset<br>Canvas</button>
+        <button type="button" id="toggle-button">Toggle<br>Circle/Square</button>
+        <div id="current-stats">
+            <p id="current-dimshape">Shape: circle / Dimension: 450</p>
+        </div>
+        <input type="range" min="1" max="900" value="450" class="slider" id="dimension-slider">
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>
