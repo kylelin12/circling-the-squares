@@ -44,7 +44,6 @@ var drawshape = function(e) {
         ctx.arc(xcor, ycor, halfdim, 0, 2 * Math.PI);
         ctx.fillStyle = color;
         ctx.stokeStyle = color;
-        ctx.stroke();
         ctx.fill();
     } else {
         ctx.fillStyle = color;
