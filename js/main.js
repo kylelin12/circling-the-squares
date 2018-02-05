@@ -49,6 +49,7 @@ var drawshape = function(e) {
         ctx.fillStyle = color;
         ctx.fillRect(xcor - halfdim, ycor - halfdim, dimension, dimension);
     }
+    ctx.beginPath();
     if (firstrun == true) {
         ctx.moveTo(xcor, ycor);
         curx = xcor;
