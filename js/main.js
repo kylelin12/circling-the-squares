@@ -6,6 +6,9 @@ var diminput = document.getElementById("dimension-slider");
 var curstats = document.getElementById("current-dimshape");
 
 var togglestate = "circle";
+var firstrun = true;
+var curx;
+var cury;
 
 var togglefunction = function() {
     if (togglestate == "circle") {
@@ -18,6 +21,10 @@ var togglefunction = function() {
 
 var resetfunction = function() {
     ctx.clearRect(0, 0, 900, 900);
+    firstrun = true;
+    var curx = undefined;
+    var cury = undefined;
+    ctx.closePath();
 };
 
 var rancolor = function() {
@@ -27,14 +34,14 @@ var rancolor = function() {
 };
 
 var drawshape = function(e) {
-    var xcor = e.clientX;
-    var ycor = e.clientY;
+    var xcor = e.offsetX;
+    var ycor = e.offsetY;
     var dimension = diminput.value;
     var halfdim = dimension / 2;
     var color = rancolor();
     ctx.beginPath();
     if (togglestate == "circle") {
-        ctx.arc(xcor - 5, ycor - 5, halfdim, 0, 2 * Math.PI);
+        ctx.arc(xcor, ycor, halfdim, 0, 2 * Math.PI);
         ctx.fillStyle = color;
         ctx.stokeStyle = color;
         ctx.stroke();
@@ -43,6 +50,19 @@ var drawshape = function(e) {
         ctx.fillStyle = color;
         ctx.fillRect(xcor - halfdim, ycor - halfdim, dimension, dimension);
     }
+    if (firstrun == true) {
+        ctx.moveTo(xcor, ycor);
+        curx = xcor;
+        cury = ycor;
+        firstrun = false;
+    }
+    color = rancolor();
+    ctx.strokeStyle = color;
+    ctx.moveTo(curx, cury);
+    ctx.lineTo(xcor, ycor);
+    curx = xcor;
+    cury = ycor;
+    ctx.stroke();
 };
 
 var updatecurstats = function(e) {
